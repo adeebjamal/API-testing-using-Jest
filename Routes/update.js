@@ -9,12 +9,12 @@ router.put("/:id", async(req,res)=> {
                 "message": "User not found."
             });
         }
-        existingUser.name = req.body.userData.name;
-        existingUser.email = req.body.userData.email;
-        existingUser.password = req.body.userData.password;
+        existingUser.name = req.body.name;
+        existingUser.email = req.body.email;
+        existingUser.password = req.body.password;
         await existingUser.save();
         return res.status(200).json({
-            "message": "User updated.",
+            "message": "User updated successfully.",
             "details": existingUser
         });
     }
@@ -33,18 +33,18 @@ router.patch("/:id", async(req,res)=> {
                 "message": "User not found."
             });
         }
-        if(req.body.userData.name) {
-            existingUser.name = req.body.userData.name;
+        if(req.body.name) {
+            existingUser.name = req.body.name;
         }
-        if(req.body.userData.email) {
-            existingUser.email = req.body.userData.email;
+        if(req.body.email) {
+            existingUser.email = req.body.email;
         }
-        if(req.body.userData.password) {
-            existingUser.password = req.body.userData.password;
+        if(req.body.password) {
+            existingUser.password = req.body.password;
         }
         await existingUser.save();
         return res.status(200).json({
-            "message": "User updated.",
+            "message": "User updated successfully.",
             "details": existingUser
         });
     }
