@@ -1,10 +1,13 @@
 const request = require('supertest');
 const app = require('../server');
+const USER = require("../Models/user");
 
 describe('PUT /users/:id', () => {
-    const existingUserId = '650db948875f28ba1377e673';
+    let existingUserId = '';
 
     it('should update user data with valid input', async () => {
+        const user = await USER.findOne();
+        existingUserId = user._id;
         const updatedUserData = {
             name: 'Updated User',
             email: 'updateduser@example.com',
@@ -35,9 +38,11 @@ describe('PUT /users/:id', () => {
 });
 
 describe('PATCH /users/:id', () => {
-    const existingUserId = '650db948875f28ba1377e673';
+    let existingUserId = '';
 
     it('should partially update user data with valid input', async () => {
+        const user = await USER.findOne();
+        existingUserId = user._id;
         const partialUserData = {
             name: 'Updated Name',
             email: 'updatedemail@example.com',
