@@ -9,8 +9,9 @@ router.delete("/:email", async(req,res)=> {
                 "message": "User not found."
             });
         }
-        await existingUser.remove();
-        return res.status(204).json({
+        await USER.deleteOne({email: existingUser.email});
+        // If status code is set to 204, it is not possible to send a JSON as response.
+        return res.status(200).json({
             "message": "User deleted successfully."
         });
     }

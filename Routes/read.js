@@ -12,7 +12,7 @@ router.get("/", async(req,res)=> {
                 "users": users
             });
         }
-        return res.status(204).json({
+        return res.status(404).json({
             "message": "Users not found."
         });
     }
@@ -31,7 +31,7 @@ router.get("/:email", async(req,res)=> {
                 "user": user
             });
         }
-        return res.status(204).json({
+        return res.status(404).json({
             "message": "User not found."
         });
     }

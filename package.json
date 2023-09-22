@@ -4,7 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "jest tests"
+    "test": "jest tests",
+    "test-create": "jest tests/create.test.js",
+    "test-read": "jest tests/read.test.js",
+    "test-update": "jest tests/update.test.js",
+    "test-delete": "jest tests/delete.test.js"
   },
   "author": "Adeeb",
   "license": "ISC",
