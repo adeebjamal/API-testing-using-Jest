@@ -1,4 +1,5 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
 const USER = require("../Models/user");
 
 // ---------- POST routes ----------
@@ -6,7 +7,7 @@ router.post("/", async(req,res)=> {
     try {
         if(!req.body.name || !req.body.email || !req.body.password || !req.body.confirmPassword) {
             return res.status(400).json({
-                "message": "Please provide all the required fields. i.e name, email and password."
+                "message": "Please provide all the required fields. i.e name, email, and password."
             });
         }
         if(req.body.password !== req.body.confirmPassword) {
